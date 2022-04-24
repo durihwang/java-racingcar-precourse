@@ -6,13 +6,11 @@ public class Racer {
 
     private String name;
     private int labs;
-    private boolean win;
 
-    public Racer(String name, int labs, boolean win) {
+    public Racer(String name, int labs) {
         validateLength(name);
         this.name = name;
         this.labs = labs;
-        this.win = win;
     }
 
     private void validateLength(String name) {

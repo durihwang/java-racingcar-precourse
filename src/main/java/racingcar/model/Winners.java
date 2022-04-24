@@ -1,7 +1,6 @@
 package racingcar.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Winners {
@@ -10,6 +9,10 @@ public class Winners {
 
     public Winners(List<Racer> winners) {
         this.winners = winners;
+    }
+
+    public List<Racer> getWinners() {
+        return winners;
     }
 
     public List<String> getArrayListStringWinners() {
@@ -21,9 +24,8 @@ public class Winners {
     }
 
     public void printWinners() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("최종 우승자: ");
-        builder.append(String.join(",", getArrayListStringWinners()));
+        String builder = "최종 우승자: " +
+                String.join(",", getArrayListStringWinners());
         System.out.println(builder);
     }
 }

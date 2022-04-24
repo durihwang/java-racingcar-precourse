@@ -22,7 +22,7 @@ public class RacingView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         String readLine = getReadLine();
         for (String s : readLine.split(",")) {
-            racer.add(new Racer(s, 0, false));
+            racer.add(new Racer(s, 0));
         }
         return new Racers(racer);
     }

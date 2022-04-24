@@ -1,6 +1,7 @@
 package racingcar.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Racers {
@@ -8,7 +9,18 @@ public class Racers {
     private List<Racer> racers;
 
     public Racers(List<Racer> racers) {
+        validate(racers);
         this.racers = racers;
+    }
+
+    public void validate(List<Racer> racers) {
+        HashSet<String> set = new HashSet<>();
+        for (Racer racer : racers) {
+            set.add(racer.getName());
+        }
+        if (racers.size() != set.size()) {
+            throw new IllegalStateException("[ERROR] 중복된 이름이 존재합니다.");
+        }
     }
 
     public List<Racer> getRacers() {

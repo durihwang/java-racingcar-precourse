@@ -5,14 +5,13 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.junit.jupiter.api.Assertions.*;
 
-class RacerTest {
+class AttemptsTest {
 
     @Test
-    void 레이서_이름_5자_이상() {
-        String name = "djfnddf";
+    void 숫자_아닌경우() {
         assertThatIllegalArgumentException().isThrownBy(() -> {
-            new Racer(name, 0);
+            String readLine = "hwang";
+            new Attempts(readLine);
         });
     }
-
 }

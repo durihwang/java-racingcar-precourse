@@ -18,17 +18,27 @@ public class RacingController {
             RacingView racingView = new RacingView();
             racers = racingView.getCarName();
             racing = new Racing(racers);
-            while (true) {
-                try {
-                    attempts = racingView.getAttempts();
-                    racing.result(attempts);
-                    break;
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+            initAttempts(racingView);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private void initAttempts(RacingView racingView) {
+        boolean check = true;
+        while (check) {
+            check = getAttempts(racingView);
+        }
+    }
+
+    private boolean getAttempts(RacingView racingView) {
+        try {
+            attempts = racingView.getAttempts();
+            racing.result(attempts);
+            return false;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return true;
     }
 }
