@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RacersTest {
@@ -44,7 +43,20 @@ class RacersTest {
         }
 
         Racers racers = new Racers(racer);
-        System.out.println(racers.getRacers().get(0));
         assertThat(racers.getRacers().get(0).getName()).isEqualTo("pobi");
+    }
+
+    @Test
+    void 리스트_중복_테스트() {
+
+        assertThatIllegalStateException().isThrownBy(() -> {
+            String readLine = "pobi,pobi,pobi";
+            ArrayList<Racer> racer = new ArrayList<>();
+            for (String s : readLine.split(",")) {
+                racer.add(new Racer(s, 0));
+            }
+
+            Racers racers = new Racers(racer);
+        });
     }
 }
